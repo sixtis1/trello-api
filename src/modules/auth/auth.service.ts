@@ -28,6 +28,10 @@ export class AuthService {
         if (!validate_password) throw new BadRequestException(errors.WRONG_DATA)
 
         const token = await this.tokenService.generate_jwt_token(userDTO.email);
-        return {...exist_user, token}
+
+        const userWithoutPassword = exist_user.get({ plain: true });
+        delete userWithoutPassword.password;
+
+        return { ...userWithoutPassword, token };
     }
 }
