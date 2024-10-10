@@ -4,8 +4,9 @@ import { AppService } from './app.service';
 import { UserModule } from '../user/user.module';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import {SequelizeModule} from "@nestjs/sequelize";
-import configuration from "../configuration";
-import {User} from "../models/user.model";
+import configuration from "../../configuration";
+import {User} from "../../models/user.model";
+import {AuthModule} from "../auth/auth.module";
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -27,7 +28,9 @@ import {User} from "../models/user.model";
         models: [User]
       })
     }),
-    UserModule],
+    UserModule,
+    AuthModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
