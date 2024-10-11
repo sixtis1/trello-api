@@ -27,8 +27,7 @@ export class AuthService {
         const validate_password = await bcrypt.compare(userDTO.password, exist_user.password);
         if (!validate_password) throw new BadRequestException(errors.WRONG_DATA)
 
-        const token = await this.tokenService.generate_jwt_token(userDTO.email);
-
+        const token = await this.tokenService.generate_jwt_token(exist_user);
         const userWithoutPassword = exist_user.get({ plain: true });
         delete userWithoutPassword.password;
 

@@ -8,6 +8,12 @@ import configuration from "../../configuration";
 import {User} from "../../models/user.model";
 import {AuthModule} from "../auth/auth.module";
 import {TokenModule} from "../token/token.module";
+import {ColumnModel} from "../../models/column.model";
+import {ColumnModule} from "../column/column.module";
+import {Card} from "../../models/card.model";
+import {CardModule} from "../card/card.module";
+import {Comment} from "../../models/comment.model";
+import {CommentModule} from "../comment/comment.module";
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -26,12 +32,15 @@ import {TokenModule} from "../token/token.module";
         database: configService.get("db_name"),
         synchronize: true,
         autoLoadModels: true,
-        models: [User]
+        models: [User, ColumnModel, Card, Comment]
       })
     }),
     UserModule,
     AuthModule,
-    TokenModule
+    TokenModule,
+    ColumnModule,
+    CardModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
