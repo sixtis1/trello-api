@@ -8,8 +8,10 @@ import configuration from "../../configuration";
 import {User} from "../../models/user.model";
 import {AuthModule} from "../auth/auth.module";
 import {TokenModule} from "../token/token.module";
-import {ColumnModel} from "../../models/columnModel";
+import {ColumnModel} from "../../models/column.model";
 import {ColumnModule} from "../column/column.module";
+import {Card} from "../../models/card.model";
+import {CardModule} from "../card/card.module";
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -28,13 +30,14 @@ import {ColumnModule} from "../column/column.module";
         database: configService.get("db_name"),
         synchronize: true,
         autoLoadModels: true,
-        models: [User, ColumnModel]
+        models: [User, ColumnModel, Card]
       })
     }),
     UserModule,
     AuthModule,
     TokenModule,
-    ColumnModule
+    ColumnModule,
+    CardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

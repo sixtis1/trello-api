@@ -1,6 +1,6 @@
 import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
-import {ColumnModel} from "../../models/columnModel";
+import {ColumnModel} from "../../models/column.model";
 import {ColumnDTO} from 'src/models/dto/columnDTO';
 import {User} from "../../models/user.model";
 import {errors} from "../../common/constants/errors";
@@ -8,6 +8,15 @@ import {errors} from "../../common/constants/errors";
 @Injectable()
 export class ColumnService {
     constructor(@InjectModel(ColumnModel) private readonly columnRepository: typeof ColumnModel) {
+    }
+
+    async find_column_by_id_and_user(columnId: number, userId: number): Promise<ColumnModel | null> {
+        return await this.columnRepository.findOne({
+            where: {
+                id: columnId,
+                user_id: userId
+            }
+        });
     }
 
     async find_column_by_name_and_user_id(user: User, dto: ColumnDTO): Promise<any> {

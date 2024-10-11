@@ -1,5 +1,5 @@
 import {Column, HasMany, Model, Table} from "sequelize-typescript";
-import {ColumnModel} from "./columnModel";
+import {ColumnModel} from "./column.model";
 
 @Table
 export class User extends Model{
