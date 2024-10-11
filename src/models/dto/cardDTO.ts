@@ -1,4 +1,4 @@
-import { IsString, IsOptional } from "class-validator";
+import { IsString, IsOptional, Length } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CardDTO {
@@ -7,6 +7,7 @@ export class CardDTO {
         example: 'Task 1',
     })
     @IsString()
+    @Length(1, 100, { message: 'Title must be between 1 and 100 characters' })
     title: string;
 
     @ApiProperty({
@@ -16,5 +17,6 @@ export class CardDTO {
     })
     @IsOptional()
     @IsString()
+    @Length(0, 500, { message: 'Description cannot exceed 500 characters' })
     description?: string;
 }
