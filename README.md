@@ -29,5 +29,6 @@ $ npm run start:prod
 
 ## DB Diagram
 
+![image](https://github.com/user-attachments/assets/7c07a22a-1e78-497b-a476-d080da70b543)
 
 
