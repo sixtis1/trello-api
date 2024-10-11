@@ -2,10 +2,8 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { InjectModel } from "@nestjs/sequelize";
 import { Card } from '../../models/card.model'
 import { CardDTO } from 'src/models/dto/cardDTO';
-import { User } from "../../models/user.model";
 import { errors } from "../../common/constants/errors";
 import {ColumnModel} from "../../models/column.model";
-import {ColumnDTO} from "../../models/dto/columnDTO";
 
 @Injectable()
 export class CardService {
