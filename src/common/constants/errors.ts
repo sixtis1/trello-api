@@ -7,4 +7,6 @@ export const errors = {
     NOT_ACCESS_COLUMN: "You are not allowed to access these columns",
     CARD_ALREADY_EXISTS: "A card with this name already exists for the user.",
     CARD_DOESNT_EXISTS: "A card with this id does not exist.",
+    COMMENT_DOESNT_EXISTS: "A comment with this id does not exist.",
+    COMMENT_ALREADY_EXISTS: "A comment with this name already exists for the user.",
 }

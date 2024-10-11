@@ -9,6 +9,7 @@ import {ColumnModel} from "../../models/column.model";
 @Module({
   imports: [SequelizeModule.forFeature([Card, ColumnModel])],
   controllers: [CardController],
-  providers: [CardService, ColumnService]
+  providers: [CardService, ColumnService],
+  exports: [CardService]
 })
 export class CardModule {}

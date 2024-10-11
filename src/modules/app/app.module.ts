@@ -12,6 +12,8 @@ import {ColumnModel} from "../../models/column.model";
 import {ColumnModule} from "../column/column.module";
 import {Card} from "../../models/card.model";
 import {CardModule} from "../card/card.module";
+import {Comment} from "../../models/comment.model";
+import {CommentModule} from "../comment/comment.module";
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -30,7 +32,7 @@ import {CardModule} from "../card/card.module";
         database: configService.get("db_name"),
         synchronize: true,
         autoLoadModels: true,
-        models: [User, ColumnModel, Card]
+        models: [User, ColumnModel, Card, Comment]
       })
     }),
     UserModule,
@@ -38,6 +40,7 @@ import {CardModule} from "../card/card.module";
     TokenModule,
     ColumnModule,
     CardModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
