@@ -1,0 +1,12 @@
+services:
+  postgresql:
+    image: postgres
+    container_name: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: trello_api
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    command: postgres
+    restart: always
