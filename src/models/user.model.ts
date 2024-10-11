@@ -1,4 +1,5 @@
-import {Column, Model, Table} from "sequelize-typescript";
+import {Column, HasMany, Model, Table} from "sequelize-typescript";
+import {ColumnModel} from "./columnModel";
 
 @Table
 export class User extends Model{
@@ -10,4 +11,7 @@ export class User extends Model{
 
     @Column
     password: string;
+
+    @HasMany(() => ColumnModel, { onDelete: "CASCADE", onUpdate: "CASCADE" })
+    columns: ColumnModel[]
 }

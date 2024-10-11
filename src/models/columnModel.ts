@@ -1,11 +1,12 @@
-import {Column, ForeignKey, Model, Table} from "sequelize-typescript";
-import {User} from "./user.model";
+import { Column, ForeignKey, Model, Table } from "sequelize-typescript";
+import { User } from "./user.model";
 
 @Table
-export class Coloumn extends Model {
+export class ColumnModel extends Model {
     @ForeignKey(() => User)
-    user_id: number
+    @Column
+    user_id: number;
 
     @Column
-    name: string
+    name: string;
 }
