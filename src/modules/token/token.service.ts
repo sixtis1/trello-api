@@ -9,8 +9,8 @@ export class TokenService {
         private configService: ConfigService
     ) {}
 
-    async generate_jwt_token(user) {
-        const payload = { user }
+    async generate_jwt_token(user: any) {
+        const payload = { id: user.id, email: user.email, username: user.username }
         return this.jwtService.sign(payload, {
             secret: this.configService.get('jwt_secret'),
             expiresIn: this.configService.get('jwt_expire')
